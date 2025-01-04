@@ -8,7 +8,7 @@ import javafx.scene.shape.Line;
 
 public class AccountsPane  extends Pane {
     private Label paneLabel, total, plusminus;
-    private Button  addAccountBtn;
+    private Button  addAccountBtn, reloadButton, changeButton;
 
     private TextField searchField;
 
@@ -23,6 +23,10 @@ public class AccountsPane  extends Pane {
 
     public Button getAddAccountBtn() {
         return addAccountBtn;
+    }
+
+    public Button getChangeButton() {
+        return changeButton;
     }
 
     public AccountsPane() {
@@ -40,14 +44,22 @@ public class AccountsPane  extends Pane {
 
         searchField = new TextField();
         searchField.setPromptText("Search Stock");
-        searchField.relocate(0, 86);
-        searchField.setStyle("-fx-pref-width: 249px; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2px;");
+        searchField.relocate(5, 86);
+        searchField.setStyle("-fx-pref-width: 239px; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2px;");
         searchField.applyCss();
 
         addAccountBtn = new Button("Add new Account");
-        addAccountBtn.relocate(0, 470);
-        addAccountBtn.setStyle("-fx-pref-width: 249px; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2px;");
+        addAccountBtn.relocate(5, 465);
+        addAccountBtn.setStyle("-fx-pref-width: 239px; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2px;");
         addAccountBtn.applyCss();
+
+        reloadButton = new Button("Reload");
+        reloadButton.relocate(150, 45);
+
+        changeButton = new Button("⚙");
+        changeButton.relocate(215, 10);
+        changeButton.setStyle("-fx-font-weight: 900; ");
+        changeButton.applyCss();
 
         total = new Label("$100000");
         plusminus = new Label("+$2352");
@@ -70,7 +82,7 @@ public class AccountsPane  extends Pane {
         accounts.setStyle("-fx-font-size: xx-large;");
         accounts.applyCss();
 
-        innerPane.getChildren().addAll(paneLabel, divider, divider1, divider2, plusminus, total, addAccountBtn, searchField,accountsList ,divider4, accounts, divider3);
+        innerPane.getChildren().addAll(paneLabel, divider, divider1, divider2, changeButton,plusminus, reloadButton,total, addAccountBtn, searchField,accountsList ,divider4, accounts, divider3);
         getChildren().addAll(innerPane);
 
     }
